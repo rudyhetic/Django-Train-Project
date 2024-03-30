@@ -1,0 +1,55 @@
+html {
+    font-family: "Reddit Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ========HEADER======  */
+
+body header {
+    background: #1F2544;
+}
+
+body header nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+body header nav a:hover {
+    color: #FFD0EC;
+    padding-bottom: 70px;
+    border-bottom: 5px #FFD0EC solid;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+header img {
+    border-radius: 10px;
+}
+
+/* ==========BODY========== */
+
+body {
+    margin: 0;
+    background: #474F7A;
+}
+
+
+#plan {
+    background: #81689D;
+    padding: 20px;
+    text-align: center;
+}
+
+#plan img {
+    border-radius: 10px;
+}

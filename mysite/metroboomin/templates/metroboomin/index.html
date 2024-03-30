@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'metroboomin/style.css' %}" />
+    <title>Metroboomin</title>
+</head>
+
+<body>
+    <header>
+        <img src="{% static 'metroboomin/logo.png' %}" alt="Logo" width="150px">
+        <!-- Je load l'img "logo.png" qu'est stocké dans mon dossier static -->
+        <nav>
+            <a href="/metroboomin/index/">Accueil</a>
+            <a href="/metroboomin/profiltrain/{{ random }}">Random</a>
+        </nav>
+        <div>
+            <form action="{% url 'index' %}" method="GET">
+                <!-- Je pointe mon template vers l'index car c'est là bas que je récupère mon Input avec la méthode GET -->
+                <input type="text" name="recherche" placeholder="Entrez le numéro du train">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <h1>Planning de la journée</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Destination</th>
+                    <th>Heure de départ</th>
+                    <th>Détails</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for train in trains %}
+                <!--Cette boucle itère à travers la liste des trains pour afficher les détails de chaque train dans mon tableau html-->
+                <tr>
+                    <td>{{ train.id }}</td>
+                    <td>{{ train.destination }}</td>
+                    <td>{{ train.datetime }}</td>
+                    <td><a href="/metroboomin/profiltrain/{{ train.id }}">Détails</a></td>
+                </tr>
+                {% endfor %}
+                <!-- Je ferme ma boucle avec endfor -->
+            </tbody>
+        </table>
+
+    </main>
+</body>
+
+</html>

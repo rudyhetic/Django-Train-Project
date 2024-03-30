@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'metroboomin/style2.css' %}" />
+    <title>Metroboomin</title>
+</head>
+
+<body>
+    <header>
+
+        <img src="{% static 'metroboomin/logo.png' %}" alt="Logo" width="150px">
+        <nav>
+            <a href="/metroboomin/index/">Accueil</a>
+            <!-- Ici {{ random }} rappelle le module que j'ai importé dans views pour générer le chiffre après profiltrain/ il va donc représenter l'ID-->
+            <a href="/metroboomin/profiltrain/{{ random }}">Random</a>
+        </nav>
+        <div>
+            <form action="{% url 'index' %}" method="GET">
+                <!-- Je pointe mon template vers l'index car c'est là bas que je récupère mon Input avec la méthode GET -->
+                <input type="text" name="recherche" placeholder="Entrez le numéro du train">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+
+        <h1>Train numéro {{ id }} </h1>
+
+        <h2>Destination : {{ destination }} </h2>
+
+        <h2>Départ à {{ datetime }} </h2>
+
+        <div id="plan">
+            <img src="{{ plan }}" width="1500px" alt="">
+        </div>
+    </main>
+</body>
+
+</html>
