@@ -13,6 +13,7 @@ def index(request):
         # Mon redirect me permets de rediriger l'utilisateur vers la page profiltrain suivit du train_id qui représente le train_num qui est la valeur rentrée dans la barre.
         return redirect('profiltrain', train_id=train_numero)
     
+
     context = {
         "trains": train.objects.all(),
         "random": random.randint(1, 15),

@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('metroboomin/', include("metroboomin.urls")),
+    path('', RedirectView.as_view(url='metroboomin/')),  # Redirige "/" vers "/metroboomin/"
     path('admin/', admin.site.urls),
+    path('metroboomin/', include('metroboomin.urls')),  # Inclut les URLs de l'app
 ]

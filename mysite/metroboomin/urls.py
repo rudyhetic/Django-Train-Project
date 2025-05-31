@@ -20,6 +20,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('index/', views.index, name="index"),
-    path('profiltrain/<train_id>/', views.profiltrain, name="profiltrain"),
+    path('', views.index, name='index'),  # Répondra à "/metroboomin/"
+    path('profiltrain/<train_id>/', views.profiltrain, name='profiltrain'),  # Répondra à "/metroboomin/profiltrain/123/"
 ]
